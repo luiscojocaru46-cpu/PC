@@ -1,0 +1,1112 @@
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PCcom de PCcomponentes perfecto</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+
+            font-family: Arial, sans-serif;
+
+            background: #f2f2f2;
+
+            color: #222;
+        }
+
+
+        /* ========================================
+           CONTENEDOR PRINCIPAL
+           ======================================== */
+
+        .contenedor {
+
+            width: min(700px, 100%);
+
+            margin: auto;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,0.15);
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            margin-top: 0;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* ========================================
+           BLOQUES
+           ======================================== */
+
+        .bloque {
+
+            margin-bottom: 40px;
+        }
+
+
+        /* ========================================
+           TEXTO CLICABLE
+           ======================================== */
+
+        .texto {
+
+            display: flex;
+
+            align-items: center;
+
+            width: 100%;
+
+            min-height: 55px;
+
+            padding: 12px 16px;
+
+            border: 2px solid #ccc;
+
+            border-radius: 10px;
+
+            background: #fafafa;
+
+            color: #222;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            user-select: none;
+
+            transition: 0.2s;
+        }
+
+
+        .texto:hover {
+
+            background: #e9e9e9;
+
+            border-color: #888;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ========================================
+           IMÁGENES
+           ======================================== */
+
+        .imagen {
+
+            display: block;
+
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            margin-top: 12px;
+
+            object-fit: cover;
+
+            border: 2px solid #ccc;
+
+            border-radius: 12px;
+
+            cursor: zoom-in;
+
+            transition: 0.2s;
+        }
+
+
+        .imagen:hover {
+
+            transform: scale(1.015);
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.2);
+        }
+
+
+        /* ========================================
+           PÁGINA DE DESCRIPCIÓN
+           ======================================== */
+
+        .descripcion {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 50000;
+
+            background: #f2f2f2;
+
+            overflow-y: auto;
+
+            padding: 30px;
+        }
+
+
+        .descripcion-contenido {
+
+            width: min(800px, 100%);
+
+            margin: auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,0.15);
+        }
+
+
+        .descripcion h2 {
+
+            margin-top: 0;
+
+            font-size: 32px;
+        }
+
+
+        .descripcion p {
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            white-space: pre-line;
+        }
+
+
+        /* ========================================
+           BOTÓN VOLVER
+           ======================================== */
+
+        .volver {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 12px 22px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #222;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            text-decoration: none;
+        }
+
+
+        .volver:hover {
+
+            background: #444;
+        }
+
+
+        /* ========================================
+           VISOR DE IMAGEN
+           ======================================== */
+
+        .visor {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100vw;
+
+            height: 100vh;
+
+            background: #000;
+
+            justify-content: center;
+
+            align-items: center;
+
+            z-index: 99999;
+
+            cursor: zoom-out;
+        }
+
+
+        .visor img {
+
+            display: block;
+
+            width: 100vw;
+
+            height: 100vh;
+
+            max-width: none;
+
+            max-height: none;
+
+            object-fit: contain;
+        }
+
+
+        /* ========================================
+           BOTÓN CERRAR IMAGEN
+           ======================================== */
+
+        .cerrar {
+
+            position: fixed;
+
+            top: 15px;
+
+            right: 25px;
+
+            z-index: 100000;
+
+            color: white;
+
+            font-size: 50px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            user-select: none;
+
+            text-shadow:
+                0 2px 10px black;
+        }
+
+
+        /* ========================================
+           MÓVIL
+           ======================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .contenedor {
+                padding: 20px;
+            }
+
+            .texto {
+                font-size: 17px;
+            }
+
+            .descripcion {
+                padding: 15px;
+            }
+
+            .descripcion-contenido {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     GALERÍA PRINCIPAL
+     ===================================================== -->
+
+<div class="contenedor">
+
+    <h1>Componentes esenciales PC</h1>
+
+
+    <!-- ===================== 1 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="text 1"
+            onclick="mostrarDescripcion(1)"
+        >
+             PROCESADOR
+        </div>
+
+        <img
+            class="imagen"
+            src="img1.jpg"
+            alt="Imagen 1"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 2 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(2)"
+        >
+            PLACA BASE
+        </div>
+
+        <img
+            class="imagen"
+            src="img2.jpg"
+            alt="Imagen 2"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 3 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(3)"
+        >
+            MEMORIA RAM
+        </div>
+
+        <img
+            class="imagen"
+            src="img3.jpg"
+            alt="Imagen 3"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 4 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(4)"
+        >
+            TORRE
+        </div>
+
+        <img
+            class="imagen"
+            src="img4.jpg"
+            alt="Imagen 4"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 5 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(5)"
+        >
+            REFRIGERADOR
+        </div>
+
+        <img
+            class="imagen"
+            src="img5.jpg"
+            alt="Imagen 5"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 6 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(6)"
+        >
+            FUENTE DE ALIMENTACIÓN
+        </div>
+
+        <img
+            class="imagen"
+            src="img6.jpg"
+            alt="Imagen 6"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 7 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(7)"
+        >
+            GRÁFICA
+        </div>
+
+        <img
+            class="imagen"
+            src="img7.jpg"
+            alt="Imagen 7"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 8 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(8)"
+        >
+            DISCO DURO
+        </div>
+
+        <img
+            class="imagen"
+            src="img8.jpg"
+            alt="Imagen 8"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 9 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(9)"
+        >
+            VENTILADOR SUPL.
+        </div>
+
+        <img
+            class="imagen"
+            src="img9.jpg"
+            alt="Imagen 9"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+
+    <!-- ===================== 10 ===================== -->
+
+    <div class="bloque">
+
+        <div
+            class="texto"
+            onclick="mostrarDescripcion(10)"
+        >
+            TEXTO 10
+        </div>
+
+        <img
+            class="imagen"
+            src="img10.png"
+            alt="Imagen 10"
+            onclick="abrirImagen(this)"
+        >
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DESCRIPCIONES
+     ===================================================== -->
+
+
+<!-- DESCRIPCIÓN 1 -->
+
+<div
+    class="descripcion"
+    id="descripcion1"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2> Procesador AMD Ryzen 7 7700 8 Núcleos 3.8 GHz Frecuencia Base 5.3 GHz Frecuencia Turbo Gráficos Integrados Bulk </h2>
+
+        <p>
+
+El AMD Ryzen 7 7700 está diseñado para usuarios exigentes que buscan un equilibrio perfecto entre rendimiento y eficiencia térmica. Sus 8 núcleos y 16 hilos permiten ejecutar tareas multitarea intensivas, desde gaming competitivo hasta edición de vídeo y modelado 3D. Con una frecuencia base de 3,8 GHz y un turbo de hasta 5,3 GHz, ofrece una respuesta instantánea en aplicaciones que demandan alta velocidad de procesamiento. (La media normal de procesadores de GHz es de 5,0, y pero este modelo, proporciona 5,3 GHz, lo que proporciona una vida más larga, y respuestas y señales más rápidas) 
+
+
+La arquitectura de 5 nm y el socket AM5 garantizan compatibilidad con las últimas placas base y tecnologías, mientras que el soporte para memoria DDR5 de hasta 5200 MHz proporciona un ancho de banda superior y menor latencia, ideal para creadores de contenido y entusiastas del overclocking. Los gráficos integrados AMD Radeon permiten montar sistemas sin tarjeta gráfica dedicada, facilitando configuraciones compactas o de bajo consumo sin sacrificar calidad visual en tareas cotidianas o gaming ligero.
+
+El Ryzen 7 7700 es perfecto para quienes buscan una plataforma preparada para el futuro, con soporte para PCI Express 5.0 y compatibilidad con los sistemas operativos más avanzados. Su TDP de 65 W lo convierte en una opción eficiente y silenciosa, ideal para equipos de escritorio de alto rendimiento. Si buscas fiabilidad, potencia y versatilidad, este procesador es tu mejor aliado. Hazte con él y lleva tu experiencia al siguiente nivel.
+
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 2 -->
+
+<div
+    class="descripcion"
+    id="descripcion2"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>Base ASRock A620AM PRO RS WIFI AMD A620 AM5 DDR5 micro ATX WiFi 6E M.2 2.5GbE</h2>
+
+        <p>
+-Soporta hasta 256 GB DDR5 y 256GB de ram a velocidades de hasta 7200 MHz en configuración Dual Channel, lo que proporciona una plataforma ágil para proyectos de edición, RENDERS exigentes o setups gaming de élite. Integra 3 slots M.2 con soporte PCIe 4.0 para que cada SSD NVMe ofrezca velocidades ultrarrápidas
+
+-Incluye Wi-Fi 6E y Bluetooth 5.2 para conectividad inalámbrica instantánea, además de LAN 2.5 GbE que garantiza transferencias sin cuello de botella. Los abundantes puertos USB 3.0 favorecen una transferencia ágil de datos y periféricos.
+
+
+
+Es para ti si:
+
+    Necesitas montar un PC con procesador AMD Ryzen AM5. → Procesadores viejos
+    Buscas configuraciones de RAM DDR5 rápidas y expansión M.2.
+    Requieres conectividad superior: Wi-Fi 6E, 2.5 GbE y Bluetooth 5.2.
+
+No es para ti si:
+
+    Necesitas compatibilidad con DDR4 o procesadores AM4.
+    Prefieres placas ATX de mayor tamaño para más slots de expansión.
+    No precisas conectividad avanzada o almacenamiento ultrarrápido.
+
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 3 -->
+
+<div
+    class="descripcion"
+    id="descripcion3"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>çCorsair Vengeance RGB DDR5 5200MHz 32GB 2x16GB CL40</h2>
+
+        <p>
+La memoria CORSAIR VENGEANCE RGB DDR5 ofrece un rendimiento DDR5, mayores frecuencias y más capacidades optimizadas para placas base Intel, mientras que ilumina si PC con una iluminación RGB dinámica y direccionable individualmente en diez zonas.
+
+
+Hágalo todo, y mas rápido
+
+En la era multinúcleo, la velocidad sin precedentes de la DRAM DDR5 garantiza que su CPU de alta gama pueda recibir datos rápidamente y con facilidad. Ya sea para jugar, para crear contenidos, para abrir 100 pestañas a la vez o para trabajar en modo multitarea, su PC para juegos podrá sobreponerse a las tareas complejas más rápido que nunca antes.
+
+
+Regulación de voltaje integrada
+
+Tiene la potencia y el control en sus manos. La regulación del voltaje integrada con el control de software iCUE ofrece un overclocking más fácil, estable y afinado que nunca.
+
+
+Características
+
+    ILUMINACIÓN DINÁMICA RGB EN DIEZ ZONAS: 
+
+Ilumine su sistema con la iluminación de diez LED RGB ultrabrillantes y direccionables individualmente por módulo, encerrados en una barra de luz panorámica.
+    PERFILES INTEL XMP 3.0 PERSONALIZADOS:
+
+ Olvídese del tedioso proceso de ajustar manualmente los ajustes de rendimiento en cada ocasión y guarde sus propios perfiles XMP a través de iCUE.
+    AMPLIA COMPATIBILIDAD:
+
+ Optimizada para la última generación de DDR5 compatibles con las placas base INTEL.
+
+
+    DISIPADOR DE CALOR DE ALUMINIO SÓLIDO:
+
+ Conduce el calor para alejarlo de la memoria rápidamente, con el refinado estilo VENGEANCE en dos tonos para adaptarse al aspecto de los sistemas modernos.
+
+    CHIPS DE MEMORIA RIGUROSAMENTE CRIBADOS Y SELECCIONADOS A MANO:
+
+ Garantizan un rendimiento constante de alta frecuencia con opciones de programación agresivas.
+
+    ANCHO DE BANDA MÁXIMO, TIEMPOS DE RESPUESTA AJUSTADOS:
+
+ Optimizado para el máximo ancho de banda y los tiempos de respuesta ajustados de las placas base Intel DDR5 más recientes.
+
+    PLACA IMPRESA PERSONALIZADA PARA EL MÁXIMO RENDIMIENTO:
+
+ Garantiza la estabilidad y calidad de la señal para un capacidad de overclocking superior.
+
+
+
+Especificaciones:
+
+    Características
+        Latencia CAS: 40
+        Memoria interna: 32 GB
+        Diseño de memoria (módulos x tamaño): 2 x 16 GB
+        Tipo de memoria interna: DDR5
+        Velocidad de memoria del reloj: 5200 MHz
+        Componente para: PC/servidor
+        Forma de factor de memoria: 288-pin DIMM
+        ECC: No
+        Intel® Extreme Memory Profile (XMP): Si
+        Versión del perfil Intel XMP (Extreme Memory Profile): 3.0
+        Tipo de enfriamiento: Disipador térmico
+        Retroiluminación: Si
+        Color de luz de fondo: Multicolor
+
+    Otras características
+        País de origen: Taiwán
+
+
+
+⚠️CL40, es latencia más alta, y cuando más baja sea la latencia, mejor funccionará, pero la diferencia es de 0,2966%, lo que solo serían unos 2FPS (fotogramas por segundo)
+
+
+
+
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 4 -->
+
+<div
+    class="descripcion"
+    id="descripcion4"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>TÍTULO 4</h2>
+
+        <p>
+Aquí escribes la descripción del elemento 4.
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 5 -->
+
+<div
+    class="descripcion"
+    id="descripcion5"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>TÍTULO 5</h2>
+
+        <p>
+Aquí escribes la descripción del elemento 5.
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 6 -->
+
+<div
+    class="descripcion"
+    id="descripcion6"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>TÍTULO 6</h2>
+
+        <p>
+Aquí escribes la descripción del elemento 6.
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 7 -->
+
+<div
+    class="descripcion"
+    id="descripcion7"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>TÍTULO 7</h2>
+
+        <p>
+Aquí escribes la descripción del elemento 7.
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 8 -->
+
+<div
+    class="descripcion"
+    id="descripcion8"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>TÍTULO 8</h2>
+
+        <p>
+Aquí escribes la descripción del elemento 8.
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 9 -->
+
+<div
+    class="descripcion"
+    id="descripcion9"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>TÍTULO 9</h2>
+
+        <p>
+Aquí escribes la descripción del elemento 9.
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- DESCRIPCIÓN 10 -->
+
+<div
+    class="descripcion"
+    id="descripcion10"
+>
+
+    <div class="descripcion-contenido">
+
+        <h2>TÍTULO 10</h2>
+
+        <p>
+Aquí escribes la descripción del elemento 10.
+        </p>
+
+        <button
+            class="volver"
+            onclick="cerrarDescripcion()"
+        >
+            ← Volver
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     VISOR DE IMAGEN
+     ===================================================== -->
+
+<div
+    class="visor"
+    id="visor"
+    onclick="cerrarImagen()"
+>
+
+    <span
+        class="cerrar"
+        onclick="cerrarImagen(event)"
+    >
+        &times;
+    </span>
+
+    <img
+        id="imagenGrande"
+        src=""
+        alt="Imagen ampliada"
+    >
+
+</div>
+
+
+
+<script>
+
+
+/* =====================================================
+   MOSTRAR DESCRIPCIÓN
+   ===================================================== */
+
+function mostrarDescripcion(numero) {
+
+    const descripcion =
+        document.getElementById(
+            "descripcion" + numero
+        );
+
+    descripcion.style.display = "block";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+
+/* =====================================================
+   CERRAR DESCRIPCIÓN
+   ===================================================== */
+
+function cerrarDescripcion() {
+
+    const descripciones =
+        document.querySelectorAll(
+            ".descripcion"
+        );
+
+    descripciones.forEach(function(descripcion) {
+
+        descripcion.style.display = "none";
+
+    });
+
+    document.body.style.overflow = "";
+
+}
+
+
+
+/* =====================================================
+   ABRIR IMAGEN
+   ===================================================== */
+
+function abrirImagen(imagen) {
+
+    const visor =
+        document.getElementById("visor");
+
+    const imagenGrande =
+        document.getElementById("imagenGrande");
+
+    imagenGrande.src = imagen.src;
+
+    visor.style.display = "flex";
+
+
+    /* Intentar pantalla completa */
+
+    if (visor.requestFullscreen) {
+
+        visor.requestFullscreen().catch(() => {});
+
+    }
+
+}
+
+
+
+/* =====================================================
+   CERRAR IMAGEN
+   ===================================================== */
+
+function cerrarImagen(event) {
+
+    if (event) {
+
+        event.stopPropagation();
+
+    }
+
+
+    const visor =
+        document.getElementById("visor");
+
+    visor.style.display = "none";
+
+
+    if (document.fullscreenElement) {
+
+        document.exitFullscreen().catch(() => {});
+
+    }
+
+
+    document.getElementById(
+        "imagenGrande"
+    ).src = "";
+
+}
+
+
+
+/* =====================================================
+   ESC
+   ===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            cerrarImagen();
+
+            cerrarDescripcion();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
+```

@@ -1,5 +1,4 @@
 
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -408,15 +407,14 @@
 
 <div class="contenedor">
 
-    <button class="modo-boton" id="modoBoton" onclick="cambiarModo()">🌙 Modo oscuro</button>
+    <button class="modo-boton" id="modoBoton" onclick="cambiarModo()"> Modo oscuro</button>
 
     <h1>Componentes esenciales PC</h1>
 
     <p style="text-align:center; margin-top:-20px; margin-bottom:30px;">
-        💡 Haz click en el nombre de cada componente para ver su descripción.
+         Haz click en el nombre de cada componente para ver su descripción.
     </p>
 
-    <p class="instruccion">💡 Haz click en el nombre de cada componente para ver su descripción.</p>
 
 
     <!-- ===================== 1 ===================== -->
@@ -1209,7 +1207,7 @@ Conectores	4 pines PWM y 3 pines ARGB 5V
 
     <div class="descripcion-contenido">
 
-        <h2></h2>
+        <h2>  </h2>
 
         <p>
 
@@ -1363,6 +1361,37 @@ function cerrarImagen(event) {
 
 
 /* =====================================================
+   MODO OSCURO / CLARO
+   ===================================================== */
+
+function cambiarModo() {
+
+    document.body.classList.toggle("modo-oscuro");
+
+    const boton = document.getElementById("modoBoton");
+
+    if (document.body.classList.contains("modo-oscuro")) {
+        boton.textContent = " Modo claro";
+        localStorage.setItem("modo", "oscuro");
+    } else {
+        boton.textContent = " Modo oscuro";
+        localStorage.setItem("modo", "claro");
+    }
+}
+
+// Recuperar el modo guardado al abrir la página
+document.addEventListener("DOMContentLoaded", function() {
+
+    const boton = document.getElementById("modoBoton");
+
+    if (localStorage.getItem("modo") === "oscuro") {
+        document.body.classList.add("modo-oscuro");
+        boton.textContent = " Modo claro";
+    }
+});
+
+
+/* =====================================================
    ESC
    ===================================================== */
 
@@ -1386,4 +1415,3 @@ document.addEventListener(
 
 </body>
 </html>
-```
